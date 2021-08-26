@@ -6,8 +6,8 @@ import AddPost from "../components/addPost";
 const IndexPage = () => {
   return (
     <Box>
-      <Center bg="#f2eddb">
-        <Box w="200px" mt={-20} h="100px">
+      <Center id="nav" bg="red">
+        <Box w="200px" mt="-1%" h="100px">
           <Image
             src={image.src}
             h="100%"
@@ -20,7 +20,12 @@ const IndexPage = () => {
       <Center flexDir="column" w="100vw">
         {/* POSTS */}
         <Box w="60%">
-          <AddPost />
+          <Box p={5} border="1px solid gray">
+            <Heading>Home</Heading>
+          </Box>
+          <Center>
+            <AddPost />
+          </Center>
           <Heading>hi</Heading>
         </Box>
       </Center>
