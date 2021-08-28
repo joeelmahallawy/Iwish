@@ -2,6 +2,7 @@ import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
 import React from "react";
 import image from "../logoImage/iwish_logo.jpeg";
 import AddPost from "../components/addPost";
+import RenderPosts from "../components/renderPosts";
 
 const IndexPage = () => {
   return (
@@ -25,6 +26,11 @@ const IndexPage = () => {
           </Box>
           <Center>
             <AddPost />
+          </Center>
+          <Center>
+            <Box>
+              <RenderPosts />
+            </Box>
           </Center>
           <Heading>hi</Heading>
         </Box>

@@ -2,12 +2,12 @@ import { Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
 import React, { useEffect, useRef } from "react";
 import autosize from "autosize";
 import handlePostAdd from "../helpers/handlePostAdd";
-import { useMethods } from "react-use";
+import { createGlobalState, useMethods, useUpdate } from "react-use";
 import { createMethods, initialState } from "../states/useMethods";
+import useGlobalValue from "../globalVariables/useGlobalState";
 
 const AddPost = () => {
-  const [state, methods] = useMethods(createMethods, initialState);
-
+  const [postsArray, setPostsArray] = useGlobalValue();
   const post = useRef();
   useEffect(() => {
     autosize(post.current);
@@ -41,11 +41,10 @@ const AddPost = () => {
         colorScheme="messenger"
         onClick={() => {
           // @ts-expect-error
-          methods.addPost(post.current.value);
-          console.log("hi");
+          handlePostAdd([], 0, post.current.value, postsArray, setPostsArray);
         }}
       >
-        {console.log(state)}
+        {console.log(postsArray)}
         Post
       </Button>
     </Flex>

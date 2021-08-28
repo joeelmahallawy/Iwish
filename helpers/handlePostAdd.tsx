@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
-import React from "react";
-import { useMethods } from "react-use";
-import { createMethods, initialState } from "../states/useMethods";
+import Posts from "../classes/posts";
+import useGlobalValue from "../globalVariables/useGlobalState";
 
-const handlePostAdd = (post, postArrFunction) => {
-  postArrFunction(post);
+const handlePostAdd = (comments, upvotes, text, postArray, setPostArray) => {
+  const post = new Posts(comments, upvotes, text);
+  postArray.push(post);
+  setPostArray([...postArray]);
 };
 export default handlePostAdd;

@@ -10,17 +10,26 @@
     "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "any-date-parser": "^1.4.6",
     "autosize": "^5.0.1",
+    "axios": "^0.21.1",
     "framer-motion": "^4",
+    "got": "^11.8.2",
+    "http-proxy-middleware": "^2.0.1",
+    "needle": "^3.0.0",
     "next": "latest",
+    "oauth-1.0a": "^2.2.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-use": "^17.2.4"
+    "react-use": "^17.2.4",
+    "twitter-api-client": "^1.3.8",
+    "twitter-api-v2": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "typescript": "4.0"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { useMethods } from "react-use";
 
 const initialState = [];
