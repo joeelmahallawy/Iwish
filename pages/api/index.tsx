@@ -1,7 +1,3 @@
-import axios from "axios";
-import { useAsyncFn } from "react-use";
-import { TwitterApi } from "twitter-api-v2";
-
 export default async function handler(req, res) {
   try {
     const myHeaders = new Headers();
@@ -15,10 +11,10 @@ export default async function handler(req, res) {
     );
 
     const response = await fetch(
-      `https://api.twitter.com/2/tweets/search/recent?query=from:TwitterDev&tweet.fields=created_at&expansions=author_id&user.fields=created_at`,
+      `https://api.twitter.com/2/tweets/search/recent?query=requestforstartup&tweet.fields=created_at&user.fields=created_at`,
+
       {
         method: "GET",
-
         headers: myHeaders,
         redirect: "follow",
       }

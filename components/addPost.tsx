@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import autosize from "autosize";
 import handlePostAdd from "../helpers/handlePostAdd";
 import { createGlobalState, useMethods, useUpdate } from "react-use";
-import { createMethods, initialState } from "../states/useMethods";
+
 import useGlobalValue from "../globalVariables/useGlobalState";
 
 const AddPost = () => {
@@ -17,7 +17,14 @@ const AddPost = () => {
   }, []);
 
   return (
-    <Flex w="50%" bg="#edf2f7" borderRadius="10px">
+    <Flex
+      w="75%"
+      bg="#edf2f7"
+      borderRadius="10px"
+      boxShadow="0.5px 0.5px 5px gray"
+      _focusWithin={{ boxShadow: "1px 1px 5px 2.5px gray" }}
+    >
+      {console.log(postsArray)}
       <Box w="90%">
         <Textarea
           _hover={{ bg: "#edf2f7" }}
@@ -32,6 +39,7 @@ const AddPost = () => {
           ref={post}
           _focus={{ bg: "#edf2f7", outline: "none" }}
         />
+
         {/* <Flex>
           <Input type="image" />
         </Flex> */}
@@ -43,8 +51,8 @@ const AddPost = () => {
           // @ts-expect-error
           handlePostAdd([], 0, post.current.value, postsArray, setPostsArray);
         }}
+        _focus={{ outline: "none" }}
       >
-        {console.log(postsArray)}
         Post
       </Button>
     </Flex>
