@@ -6,6 +6,7 @@ import RenderPosts from "../components/renderPosts";
 
 // FIXME:FIXME:FIXME:FIXME:THEME COLOR #f1f3f4FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:FIXME:
 const IndexPage = () => {
+  // document.body.style.backgroundColor = "red";
   return (
     <Box h="100%" bg="#FFFAF0">
       <Center id="nav">
