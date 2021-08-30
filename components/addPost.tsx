@@ -24,7 +24,6 @@ const AddPost = () => {
       boxShadow="0.5px 0.5px 5px gray"
       _focusWithin={{ boxShadow: "1px 1px 5px 2.5px gray" }}
     >
-      {console.log(postsArray)}
       <Box w="90%">
         <Textarea
           _hover={{ bg: "#edf2f7" }}

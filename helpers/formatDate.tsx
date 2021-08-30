@@ -16,7 +16,7 @@ export default function formatDate(post) {
   if (timeBetweenNowAndPost < 24 && timeBetweenNowAndPost > 1)
     return `${Math.floor(timeBetweenNowAndPost)}h`;
   if (timeBetweenNowAndPost < 1)
-    return `< ${Math.floor(timeBetweenNowAndPost)}h`;
+    return `${Math.floor(timeBetweenNowAndPost * 60)} mins`;
 
   if (tweetDay == yesterday) return "Yesterday";
 

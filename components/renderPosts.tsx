@@ -31,7 +31,6 @@ const RenderPosts = () => {
     const response = await fetch("/api");
     const result = await response.json();
     setPostsArray([...postsArray, ...result.data]);
-    console.log(result.data);
     return result.data;
   }, []);
 
@@ -60,7 +59,10 @@ const RenderPosts = () => {
             bg="transparent"
             _focus={{ outline: "none" }}
             _hover={{ bg: "gray.200" }}
-            onClick={() => (post.openComments = true)}
+            onClick={() => {
+              post.openComments = true;
+              updateSelf();
+            }}
           >
             Comment
           </Button>
@@ -82,44 +84,63 @@ const RenderPosts = () => {
         </Flex>
       </Box>
       {post.openComments && (
-        // post.comments.map((comment, i) => (
-        //   <Box>
-        //     <Input />
-        //   </Box>
-        // ))
+        <>
+          {post.comments.map((comment, i) => (
+            <Flex key={i} p={3}>
+              <Box bg="gray.100" p={3} w="100%" borderRadius={5}>
+                <Flex justifyContent="space-between">
+                  <Flex>
+                    <ImProfile size="30" />
+                    <Text ml={1} fontSize="110%" fontWeight="600">
+                      Anonymous {i + 1}
+                    </Text>
+                  </Flex>
+                  {formatDate(comment)}
+                </Flex>
+                <Flex mt={3}>
+                  <Text fontWeight="400" fontSize="110%" mt={1}>
+                    {comment.text}
+                  </Text>
+                </Flex>
+                <Flex justifyContent="flex-end">
+                  {/* FIXME:FIXME: */}
+                  <Button
+                    bg="transparent"
+                    _focus={{ outline: "none" }}
+                    _hover={{ bg: "gray.200" }}
+                  >
+                    Comment
+                  </Button>
+                  <Button
+                    bg="transparent"
+                    _focus={{ outline: "none" }}
+                    _hover={{ bg: "gray.200" }}
+                  >
+                    <IoMdArrowDropup size={30} />
+                    {post.upvotes}
+                  </Button>
+                  {/* FIXME:FIXME: */}
+                </Flex>
+              </Box>
+            </Flex>
+          ))}
 
-        <Center p={3}>
-          {console.log("wow")}
-          <ImProfile size="30" />
-          {/* <Textarea
-            h="20%"
-            rows={1}
-            _hover={{ bg: "none" }}
-            placeholder="Add a comment..."
-            // resize="none"
-            _focus={{ outline: "none", border: "1px solid gray" }}
-          /> */}
-          <Input
-            ml={3}
-            w="80%"
-            mr={1}
-            onChange={() => console.log(comment.current)}
-            ref={comment}
-          />
-          <Button
-            colorScheme="messenger"
-            onClick={() => {
-              //   handleCommentAdd(comment.current.value);
-              console.log(comment.current.value);
-              // @ts-expect-error
-              post.comments.push({ text: comment.current.value, upvotes: 0 });
-              console.log(post);
-            }}
-          >
-            {console.log(post)}
-            Comment
-          </Button>
-        </Center>
+          <Center p={3}>
+            <ImProfile size="30" />
+            <Input ml={3} w="80%" mr={1} ref={comment} />
+            <Button
+              colorScheme="messenger"
+              onClick={() => {
+                //   @ts-expect-error
+                handleCommentAdd(comment.current.value, post.comments);
+                updateSelf();
+              }}
+            >
+              {console.log(post)}
+              Comment
+            </Button>
+          </Center>
+        </>
       )}
     </Box>
   ));
