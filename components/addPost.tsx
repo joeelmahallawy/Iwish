@@ -31,7 +31,7 @@ const AddPost = () => {
           w="100%"
           minHeight="80px"
           maxH="200px"
-          placeholder="I wish..."
+          placeholder="I wish... #requestforstartup"
           fontSize="170%"
           resize="none"
           rows={2}
