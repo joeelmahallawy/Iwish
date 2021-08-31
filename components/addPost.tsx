@@ -38,7 +38,6 @@ const AddPost = () => {
           ref={post}
           _focus={{ bg: "#edf2f7", outline: "none" }}
         />
-
         {/* <Flex>
           <Input type="image" />
         </Flex> */}
